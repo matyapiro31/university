@@ -1,8 +1,168 @@
+﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title>実験データのページ</title>
-    </head>
-    <body>
-        <a href="./circuit.pdf">まちゃの回路図</a>
-    </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />  
+<meta name="apple-mobile-web-app-status-bar-style" content="black">  
+<meta name="format-detection" content="telephone=no" />
+    <title>実験データのページ</title>
+    <style>
+	body
+	{
+  	background-color:#404040;
+  	margin:0;
+  	padding:0;
+	}
+        #main
+        {
+         width:100%;
+        }
+        input
+        {
+            width:60%;
+            margin-left: 35px;
+        }
+        h1
+        {
+  	font-size:15pt;
+  	color:#ffffff;
+ 	 height:1.5em;
+ 	 margin:0;
+	 padding:0.7em;
+	  text-shadow:1px 1px 5px #000000;
+  	background:-webkit-gradient(linear, left top, left bottom,
+  	  from(#a0ffff), color-stop(0.7,#004040), to(#507070)); 
+	}
+	p 
+	{
+	  padding-top: 20px;
+	  color: #D0D0D0;
+	}
+
+     </style> 
+    <script type="text/javascript">
+        function Judge(page) {
+            var ans = new Array();
+            var i=frm_b.D1.value;
+			var j,frm_i;
+			switch(page){
+				case(0):{
+					j=i;
+					frm_i=frm_a.txt_a.value;
+					break;
+				}
+				case(1):{
+					if(i>0){i++;}
+					j=i;;
+					frm_i=frm_c.txt_c.value;
+					break;
+				}
+				case(2):{
+					if(i>0){i++;i++;}
+					j=i;;
+					frm_i=frm_d.txt_d.value;
+					break;
+				}
+			}
+        ans[0] = "Please write your answer in the form.";
+        ans[1] = "somewhat better than last year";
+        ans[2] = "not necessarily true";
+	ans[3] = "He lost despite his efforts.";
+	ans[4] = "proceed straight ahead";
+	ans[5] = "ensure your success";
+	ans[6] = "interpret the word in two ways";
+	ans[7] = "The Soviet Union ceased to exist.";
+	ans[8] = "spoil the party";
+	ans[9] = "obey the law";
+	ans[10] = "Can we eliminate cancer?";
+	ans[11] = "resist pressure from the US";
+	ans[12] = "celebrate his birthday";
+	ans[13] = "weigh 65 lilograms";
+	ans[14] = "substtitute margarine for butter";
+	ans[15] = "He was transferred to Osaka";
+	ans[16] = "interrupt their conversation";
+	ans[17] = "confront a difficult problem";
+            if (!(frm_b.D1.value == null)) {
+                switch (frm_i) {
+                    case (ans[j]):
+                        {
+                            alert("正解です!");
+                            break;
+                        }
+
+                    default:
+                        {
+                            alert("不正解です!\n正解は\n" + ans[j] +"\nです。");
+                            break;
+                        }
+                }
+		location.reload();
+            }  
+		var info=document.getElementById('kde1');
+		info.parentNode.removeChild(info);
+        }
+        function MGS(page) {
+            var wrong = confirm("正解を確認しますか？");
+            if (wrong) {
+                Judge(page);
+            }
+
+        }
+        function MGT() {
+            var quest = new Array();
+            var i = frm_b.D1.value;
+            quest[0] = "";
+            quest[1] = "去年より多少良い\n";
+            quest[2] = "必ずしも本当でない\n";
+            quest[3] = "努力にもかかわらず彼は負けた\n";
+            quest[4] = "まっすぐ前に進む\n";
+            quest[5] = "君の成功を保証する\n";
+            quest[6] = "言葉を二通りに解釈する\n";
+            quest[7] = "ソ連は存在しなくなった\n";
+            quest[8] = "パーティーを台無しにする\n";
+            quest[9] = "法に従う\n";
+            quest[10] = "ガンをなくすことはできるか\n";
+            quest[11] = "アメリカの圧力に抵抗する\n";
+            var info = document.getElementById('kde1');
+            var textNode = document.createTextNode(quest[i]);
+            info.appendChild(textNode);
+            document.frm_a.txt_a.focus();
+			info = document.getElementById('kde2');
+			i++;
+			textNode = document.createTextNode(quest[i]);
+			info.appendChild(textNode);
+			i++;
+			info = document.getElementById('kde3');
+			textNode = document.createTextNode(quest[i]);
+			info.appendChild(textNode);
+        }
+ 
+        function MGK(page) {
+            var e = window.event;
+            if (e.keyCode == 13)
+                MGS(page);
+        }
+        window.onload = function () {
+            var info = document.getElementById('kde1');
+            var textNode = document.createTextNode("問題１：");
+            info.appendChild(textNode);
+			info = document.getElementById('kde2');
+			textNode = document.createTextNode("問題２：");
+			info.appendChild(textNode);
+			info = document.getElementById('kde3');
+			textNode = document.createTextNode("問題３：");
+			info.appendChild(textNode);
+        }
+</script>
+</head>
+<body style="font-size: smaller">
+<div id="main">
+<font size="3">
+<h1 >①中川の回路図</h1></font> <p/>
+ <font size=5>
+ <b> ファイル:</b> <a href="./circuit.pdf"/>circuit.pdf</a>
+</font>
+</div>
+</body>
 </html>
